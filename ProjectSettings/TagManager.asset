@@ -8,6 +8,7 @@ TagManager:
   - EnemyBullet
   - Boss
   - StageLimit
+  - Enemy
   layers:
   - Default
   - TransparentFX
