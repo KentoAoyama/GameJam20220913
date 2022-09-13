@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] Text _countDownText;
-    [SerializeField] GameObject _panel;
+    [SerializeField] GameObject _startPanel;
 
     float _countDown = 3.5f;
 
@@ -17,7 +17,7 @@ public class TimeManager : MonoBehaviour
 
     void Awake()
     {
-        _panel.SetActive(true);
+        _startPanel.SetActive(true);
     }
 
 
@@ -43,7 +43,7 @@ public class TimeManager : MonoBehaviour
     {
         if (_countDown < 1)
         {
-            _panel.SetActive(false);
+            _startPanel.SetActive(false);
             _countDownText.text = "";
             _isGame = true;
         }

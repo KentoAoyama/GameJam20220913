@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LifeManager : MonoBehaviour
 {
     [SerializeField] string _resultSceneName;
-    [SerializeField] GameObject _panel;
+    [SerializeField] GameObject _endPanel;
 
     GameObject _player;
     GameObject _boss;
@@ -17,6 +17,8 @@ public class LifeManager : MonoBehaviour
 
     void Start()
     {
+        _endPanel.SetActive(false);
+
         _player = GameObject.FindWithTag("Player");
         _boss = GameObject.FindWithTag("Boss");
 
@@ -50,8 +52,8 @@ public class LifeManager : MonoBehaviour
     IEnumerator GameClear()
     {
         Destroy(_boss);
+        _endPanel.SetActive(true);
         yield return new WaitForSeconds(5);
-        _panel.SetActive(true);
         SceneManager.LoadScene(_resultSceneName);
     }
 
@@ -59,8 +61,8 @@ public class LifeManager : MonoBehaviour
     IEnumerator GameOver()
     {
         Destroy(_player);
+        _endPanel.SetActive(true);
         yield return new WaitForSeconds(5);
-        _panel.SetActive(true);
         SceneManager.LoadScene(_resultSceneName);
     }
 }

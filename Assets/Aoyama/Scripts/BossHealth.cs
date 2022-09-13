@@ -5,10 +5,13 @@ using UnityEngine;
 public class BossHealth : MonoBehaviour
 {
     [SerializeField, Tooltip("死亡時に出すプレハブ")] GameObject _deathPrefab;
+    [SerializeField, Tooltip("Bossの体のパーツ")] GameObject[] _bossBody;
 
     public int _enemyHealth = 5;
+    int _destroyNum = 0;
 
     Animator _animator;
+    ParticleSystem _particle;
 
     EnemyLevelState _els;
     public EnemyLevelState ELS => _els;
@@ -17,6 +20,7 @@ public class BossHealth : MonoBehaviour
     void Start()
     {
         _animator = GetComponent<Animator>();
+        _particle = GetComponent<ParticleSystem>();
     }
 
 
@@ -60,8 +64,9 @@ public class BossHealth : MonoBehaviour
         if (collision.gameObject.tag == "PlayerBullet")
         {
             _enemyHealth--;
-            Destroy(collision.gameObject);
-
+            Destroy(_bossBody[_destroyNum]);
+            _destroyNum++;
+            _particle.Play();
         }
     }
 
