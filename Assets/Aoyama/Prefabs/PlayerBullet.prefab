@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _bulletSpeed: 10
+  _hitEffect: {fileID: 1630487057046771881, guid: 581eac62b05eb134cad5042214c5affe, type: 3}
 --- !u!50 &8411022107262682200
 Rigidbody2D:
   serializedVersion: 4

@@ -5,14 +5,13 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     [SerializeField] float _bulletSpeed = 10;
+    [SerializeField] GameObject _hitEffect;
 
-    private GameObject _player;
     Rigidbody2D _rb;
 
 
     void Start()
     {
-        _player = GameObject.Find("Player");
         _rb = GetComponent<Rigidbody2D>();
         _rb.velocity =  transform.up * _bulletSpeed;
     }
@@ -20,6 +19,7 @@ public class PlayerBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        Instantiate(_hitEffect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 }
