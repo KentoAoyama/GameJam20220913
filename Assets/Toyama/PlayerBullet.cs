@@ -6,9 +6,9 @@ public class PlayerBullet : MonoBehaviour
 {
     [SerializeField] float _bulletSpeed = 10;
     [SerializeField] GameObject _hitEffect;
-    [SerializeField] AudioSource _enemyBullete;
-    [SerializeField] AudioSource _enemy;
-    [SerializeField] AudioSource _boss;
+    [SerializeField] GameObject _enemyBulletSE;
+    [SerializeField] GameObject _enemySe;
+    [SerializeField] GameObject _panSe;
     Rigidbody2D _rb;
 
 
@@ -23,17 +23,17 @@ public class PlayerBullet : MonoBehaviour
     {
         if(collision.gameObject.tag == "EnemyBullet")
         {
-            _enemyBullete.Play();
+            Instantiate(_enemyBulletSE);
         }
         else if(collision.gameObject.tag == "Boss")
         {
-            _boss.Play();
+            Instantiate(_panSe);
         }
         else if(collision.gameObject.tag == "Enemy")
         {
-            _enemy.Play();
+            Instantiate(_enemySe);
         }
         Instantiate(_hitEffect, transform.position, transform.rotation);
-        Destroy(gameObject,0.2f);
+        Destroy(gameObject);
     }
 }
