@@ -14,7 +14,6 @@ public class PlayerBullet : MonoBehaviour
     {
         _player = GameObject.Find("Player");
         _rb = GetComponent<Rigidbody2D>();
-        _rb.velocity = transform.up * _bulletSpeed;
     }
 
 
