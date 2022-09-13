@@ -16,17 +16,13 @@ public class EnemySpawn : MonoBehaviour
     private float _enemyTimer = 0f;
     private bool _bossSpawne = false;
 
-    void Start()
-    {
-        
-    }
     void Update()
     {
         if (!_flag) return;
 
         if (_bossSpawne)
         {
-            return; 
+            return;
         }
 
         // ウェーブ内で敵の生成間隔を待つ
@@ -40,7 +36,6 @@ public class EnemySpawn : MonoBehaviour
                 _bossSpawne = true;
                 GameObject boss = Instantiate(_boss);
                 boss.transform.position = _spawnPoint.position;
-                _flag = true;
                 return;
             }
 
@@ -59,6 +54,14 @@ public class EnemySpawn : MonoBehaviour
                 _index++;
             }
         }
+    }
+    public void StopGeneration()
+    {
+        _flag = false;
+    }
+    public void StartGeneration()
+    {
+        _flag = true;
     }
 }
 

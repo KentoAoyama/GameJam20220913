@@ -4,17 +4,11 @@ using UnityEngine;
 
 public class NewBehaviourScript : MonoBehaviour
 {
-    void Start()
+    private void OnTriggerEnter2D (Collider2D collision)
     {
-        
-    }
-
-    void Update()
-    {
-        
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
+        if(collision.gameObject.tag == "Bullet")
+        {
+            Destroy(gameObject);
+        }
     }
 }
