@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - StageLimit
   - Enemy
+  - PlayerBullet
   layers:
   - Default
   - TransparentFX

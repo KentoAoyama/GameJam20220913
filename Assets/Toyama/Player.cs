@@ -27,7 +27,7 @@ public class Player : MonoBehaviour
         b.y = _rb2d.velocity.y;
         _rb2d.velocity = b;
        
-        if(Input.GetButtonDown("Jump") && _bulletTime < _time)
+        if(Input.GetButton("Jump") && _bulletTime < _time && TimeManager._isGame)
         {
             GameObject bullet = Instantiate(_bullet);
             bullet.transform.position = _muzzle.position;
