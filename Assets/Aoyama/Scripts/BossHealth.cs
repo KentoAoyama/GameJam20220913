@@ -21,8 +21,10 @@ public class BossHealth : MonoBehaviour
     public EnemyLevelState ELS => _els;
 
 
-    void Start()
+    void OnEnable()
     {
+        _isGameClear = false;
+
         _animator = GetComponent<Animator>();
         _particle = GetComponent<ParticleSystem>();
     }
@@ -37,7 +39,7 @@ public class BossHealth : MonoBehaviour
     }
 
 
-    void OnDestroy()
+    void OnDisable()
     {
         if (!_isLastBoss)
         {

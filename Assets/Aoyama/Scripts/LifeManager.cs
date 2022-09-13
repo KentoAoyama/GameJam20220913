@@ -11,9 +11,7 @@ public class LifeManager : MonoBehaviour
 
 
     GameObject _player;
-    public GameObject _boss;
 
-    BossHealth _bossHealth;
     PlayerHealth _playerHealth;
 
     void Start()
@@ -21,9 +19,7 @@ public class LifeManager : MonoBehaviour
         _endPanel.SetActive(false);
 
         _player = GameObject.FindWithTag("Player");
-        _boss = GameObject.FindWithTag("Boss");
 
-        _bossHealth = _boss.GetComponent<BossHealth>();
         _playerHealth = _player.GetComponent<PlayerHealth>();
     }
 

@@ -11,8 +11,6 @@ public class EnemySpawn : MonoBehaviour
     private int _index;
     private float _enemyTimer = 5f;
 
-    public static bool _isBossActive;
-
 
     void FixedUpdate()
     {

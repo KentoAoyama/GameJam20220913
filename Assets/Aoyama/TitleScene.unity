@@ -958,6 +958,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: BossTitle
       objectReference: {fileID: 0}
+    - target: {fileID: 3350662760739971571, guid: 912627cd53c45394e941ebbfc1e70327, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 912627cd53c45394e941ebbfc1e70327, type: 3}
 --- !u!1001 &6959308291879089127
@@ -967,6 +971,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1444111111548387266, guid: 5e58880ccbadfba43ba5c17003209c43, type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 1444111112265136238, guid: 5e58880ccbadfba43ba5c17003209c43, type: 3}
       propertyPath: m_Name
       value: LastBossTitle

@@ -17,6 +17,7 @@ public class TimeManager : MonoBehaviour
 
     void Awake()
     {
+        _isGame = false;
         _startPanel.SetActive(true);
     }
 
