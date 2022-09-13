@@ -12,13 +12,13 @@ public class BossHealth : MonoBehaviour
 
     EnemyLevelState _els;
     public EnemyLevelState ELS => _els;
-    
+
 
     void Start()
     {
         _animator = GetComponent<Animator>();
     }
-  
+
 
     void FixedUpdate()
     {
@@ -29,12 +29,20 @@ public class BossHealth : MonoBehaviour
     }
 
 
+    void OnDisable()
+    {
+        if (_deathPrefab)
+        {
+            Instantiate(_deathPrefab, transform.position, transform.rotation);
+        }
+    }
+
     /// <summary>Enemy‚Ì‘Ì—Í‚É‰‚¶‚½s“®‚ğ‚³‚¹‚é</summary>
     void EnemyMove()
     {
         if (_enemyHealth >= 4)
         {
-            _animator.SetFloat("EnemyLevel", 4); 
+            _animator.SetFloat("EnemyLevel", 4);
         }
         else if (_enemyHealth >= 2)
         {
@@ -43,11 +51,6 @@ public class BossHealth : MonoBehaviour
         else if (_enemyHealth > 0)
         {
             _animator.SetFloat("EnemyLevel", 1);
-        }
-        else if (_deathPrefab)
-        {
-            Instantiate(_deathPrefab, transform.position, transform.rotation);
-            Destroy(gameObject);
         }
     }
 
