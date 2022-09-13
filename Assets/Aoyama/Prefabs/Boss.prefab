@@ -855,6 +855,7 @@ MonoBehaviour:
   - {fileID: 570290482}
   - {fileID: 651331134}
   _shootInterval: 0.5
+  _shootInterval2: 1
 --- !u!114 &9059649240633895826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -867,13 +868,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b211ce90ad3f645a53399f44530819, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bossPrefab: {fileID: 7330790834439799376}
   _deathPrefab: {fileID: 4609825474602562027, guid: fad74b6e8fe48d046ab604ed2843ea60, type: 3}
   _bossBody:
   - {fileID: 7330790833329457092}
   - {fileID: 7330790833873738449}
   - {fileID: 7330790833426922341}
   - {fileID: 7330790833355778548}
+  _bossValue: 3
   _enemyHealth: 5
+  _isGameClear: 0
 --- !u!95 &2044611259
 Animator:
   serializedVersion: 4

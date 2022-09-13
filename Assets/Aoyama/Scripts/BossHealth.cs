@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
+    [SerializeField, Tooltip("次のBossのプレハブ")] GameObject _bossPrefab;
     [SerializeField, Tooltip("死亡時に出すプレハブ")] GameObject _deathPrefab;
     [SerializeField, Tooltip("Bossの体のパーツ")] GameObject[] _bossBody;
+    [SerializeField] bool _isLastBoss;
+    [Tooltip("ボスが出てきた数")] static int _bossCount;
 
     public int _enemyHealth = 5;
     int _destroyNum = 0;
+    public bool _isGameClear;
 
     Animator _animator;
     ParticleSystem _particle;
@@ -56,6 +60,17 @@ public class BossHealth : MonoBehaviour
         {
             _animator.SetFloat("EnemyLevel", 1);
         }
+        else if (_isLastBoss)
+        {
+            _isGameClear = true;
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instantiate(_bossPrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+        
     }
 
 

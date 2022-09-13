@@ -9,6 +9,7 @@ public class LifeManager : MonoBehaviour
     [SerializeField] string _resultSceneName;
     [SerializeField] GameObject _endPanel;
 
+
     GameObject _player;
     public GameObject _boss;
 
@@ -24,18 +25,11 @@ public class LifeManager : MonoBehaviour
 
         _bossHealth = _boss.GetComponent<BossHealth>();
         _playerHealth = _player.GetComponent<PlayerHealth>();
-
-        _boss.SetActive(false);
     }
 
     
     void FixedUpdate()
     {
-        if (EnemySpawn._isBossActive)
-        {
-            _boss.SetActive(true);
-        }
-
         GameEnd();
     }
 
@@ -43,7 +37,7 @@ public class LifeManager : MonoBehaviour
     void GameEnd()
     {
         //Boss‚ÌHP‚ªƒ[ƒ‚É‚È‚Á‚½‚Ìˆ—
-        if (_bossHealth._enemyHealth <= 0)
+        if (_bossHealth._isGameClear)
         {
             StartCoroutine(GameClear());
         }
