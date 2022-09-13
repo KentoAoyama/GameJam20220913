@@ -6,7 +6,7 @@ public class BossHealth : MonoBehaviour
 {
     [SerializeField, Tooltip("死亡時に出すプレハブ")] GameObject _deathPrefab;
 
-    public static int _enemyHealth = 5;
+    public int _enemyHealth = 5;
 
     Animator _animator;
 
@@ -29,6 +29,7 @@ public class BossHealth : MonoBehaviour
     }
 
 
+    /// <summary>Enemyの体力に応じた行動をさせる</summary>
     void EnemyMove()
     {
         if (_enemyHealth >= 4)
@@ -43,9 +44,21 @@ public class BossHealth : MonoBehaviour
         {
             _animator.SetFloat("EnemyLevel", 1);
         }
-        else
+        else if (_deathPrefab)
         {
             Instantiate(_deathPrefab, transform.position, transform.rotation);
+            Destroy(gameObject);
+        }
+    }
+
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "PlayerBullet")
+        {
+            _enemyHealth--;
+            Destroy(collision.gameObject);
+
         }
     }
 

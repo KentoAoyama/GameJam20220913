@@ -10,10 +10,12 @@ public class LifeManager : MonoBehaviour
     [SerializeField] string _resultSceneName;
     [SerializeField] GameObject _panel;
 
+    BossHealth _bossHealth;
+
 
     void Start()
     {
-        
+        _bossHealth = FindObjectOfType<BossHealth>().GetComponent<BossHealth>();
     }
 
     
@@ -25,7 +27,7 @@ public class LifeManager : MonoBehaviour
 
     void GameEnd()
     {
-        if (BossHealth._enemyHealth <= 0)
+        if (_bossHealth._enemyHealth <= 0)
         {
             StartCoroutine(GameClear());
         }
@@ -33,7 +35,7 @@ public class LifeManager : MonoBehaviour
         //Player‚ÌHP‚ªƒ[ƒ‚É‚È‚Á‚½Û‚É‚â‚éˆ—
         //if ()
         //{
-
+              //StartCoroutine(GameOver());
         //}        
     }
 
@@ -41,7 +43,7 @@ public class LifeManager : MonoBehaviour
     IEnumerator GameClear()
     {
         _panel.SetActive(true);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(6);
         SceneManager.LoadScene(_resultSceneName);
     }
 

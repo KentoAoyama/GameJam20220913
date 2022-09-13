@@ -17,7 +17,7 @@ public class BossShoot : MonoBehaviour
             _timer += Time.deltaTime;
         }
 
-        if (_timer > _shootInterval)
+        if (_timer > _shootInterval && _enemyBullet)
         {
             _timer = 0;
             for (int i = 0; i < _muzzle.Length; i++)
