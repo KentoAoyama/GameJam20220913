@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class TimeManager : MonoBehaviour
 {
@@ -11,6 +10,7 @@ public class TimeManager : MonoBehaviour
 
     float _countDown = 3.5f;
 
+    /// <summary>カウントダウンが終了し、ゲームが開始しているか表す変数</summary>
     public static bool _isGame;
 
 

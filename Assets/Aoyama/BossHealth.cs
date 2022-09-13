@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossHealth : MonoBehaviour
 {
+    [SerializeField, Tooltip("死亡時に出すプレハブ")] GameObject _deathPrefab;
+
     public static int _enemyHealth = 5;
 
     Animator _animator;
@@ -37,9 +39,13 @@ public class BossHealth : MonoBehaviour
         {
             _animator.SetFloat("EnemyLevel", 2);
         }
-        else
+        else if (_enemyHealth > 0)
         {
             _animator.SetFloat("EnemyLevel", 1);
+        }
+        else
+        {
+            Instantiate(_deathPrefab, transform.position, transform.rotation);
         }
     }
 
@@ -50,6 +56,5 @@ public class BossHealth : MonoBehaviour
         Level1,
         Level2,
         Level3,
-        Death
     }
 }
