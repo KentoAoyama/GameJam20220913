@@ -7,7 +7,6 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] GameObject[] _enemy;
     [SerializeField] Transform _spawnPoint = null;
     [SerializeField] float _spawnTime = 2f;
-    [SerializeField] int _enemyCount = 0;
 
     private int _index;
     private float _enemyTimer = 5f;

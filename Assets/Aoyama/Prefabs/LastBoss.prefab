@@ -856,7 +856,7 @@ MonoBehaviour:
   - {fileID: 1234793404516539224}
   _shootInterval: 0.5
   _shootInterval2: 1
-  _isLast: 0
+  _isLast: 1
 --- !u!114 &7825154938278278900
 MonoBehaviour:
   m_ObjectHideFlags: 0

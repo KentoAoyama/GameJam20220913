@@ -12,7 +12,7 @@ public class BossHealth : MonoBehaviour
 
     public int _enemyHealth = 5;
     int _destroyNum = 0;
-    public bool _isGameClear;
+    public static bool _isGameClear;
 
     Animator _animator;
     ParticleSystem _particle;
@@ -39,11 +39,18 @@ public class BossHealth : MonoBehaviour
 
     void OnDestroy()
     {
-        if (_deathPrefab)
+        if (!_isLastBoss)
         {
             Instantiate(_deathPrefab, transform.position, transform.rotation);
+            Instantiate(_bossPrefab, transform.position, transform.rotation);
+        }
+        else
+        {
+            Instantiate(_deathPrefab, transform.position, transform.rotation);
+            _isGameClear = true;
         }
     }
+
 
     /// <summary>EnemyÇÃëÃóÕÇ…âûÇ∂ÇΩçsìÆÇÇ≥ÇπÇÈ</summary>
     void EnemyMove()
@@ -60,14 +67,8 @@ public class BossHealth : MonoBehaviour
         {
             _animator.SetFloat("EnemyLevel", 1);
         }
-        else if (_isLastBoss)
-        {
-            _isGameClear = true;
-            Destroy(gameObject);
-        }
         else
         {
-            Instantiate(_bossPrefab, transform.position, transform.rotation);
             Destroy(gameObject);
         }
         
@@ -79,7 +80,7 @@ public class BossHealth : MonoBehaviour
         if (collision.gameObject.tag == "PlayerBullet")
         {
             _enemyHealth--;
-            Destroy(_bossBody[_destroyNum]);
+            Destroy(_bossBody[_destroyNum % 4]);
             _destroyNum++;
             _particle.Play();
         }

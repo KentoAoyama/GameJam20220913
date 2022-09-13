@@ -37,7 +37,7 @@ public class LifeManager : MonoBehaviour
     void GameEnd()
     {
         //Boss‚ÌHP‚ªƒ[ƒ‚É‚È‚Á‚½‚Ìˆ—
-        if (_bossHealth._isGameClear)
+        if (BossHealth._isGameClear)
         {
             StartCoroutine(GameClear());
         }
@@ -52,7 +52,6 @@ public class LifeManager : MonoBehaviour
 
     IEnumerator GameClear()
     {
-        Destroy(_boss);
         _endPanel.SetActive(true);
         yield return new WaitForSeconds(5);
         SceneManager.LoadScene(_resultSceneName);
