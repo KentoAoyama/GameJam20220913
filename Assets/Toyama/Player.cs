@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     [SerializeField] GameObject _bullet = default;
     [SerializeField] Transform _muzzle = default;
     [SerializeField] float _bulletTime = 0.5f;
+    [SerializeField] AudioSource _adBullet;
 
     private float _time;
     private float _h = 0f;
@@ -29,6 +30,7 @@ public class Player : MonoBehaviour
        
         if(Input.GetButton("Jump") && _bulletTime < _time && TimeManager._isGame)
         {
+            _adBullet.Play();
             GameObject bullet = Instantiate(_bullet);
             bullet.transform.position = _muzzle.position;
             _time = 0f;
