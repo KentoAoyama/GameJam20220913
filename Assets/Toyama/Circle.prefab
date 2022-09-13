@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_amplitude: 0
   m_speedX: 3
-  m_speedY: 1
+  m_speedY: 4.51
 --- !u!114 &-8668130230560129534
 MonoBehaviour:
   m_ObjectHideFlags: 0
