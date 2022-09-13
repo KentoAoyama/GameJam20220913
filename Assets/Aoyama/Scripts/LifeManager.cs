@@ -6,16 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class LifeManager : MonoBehaviour
 {
-    [SerializeField] Text _countDownText;
     [SerializeField] string _resultSceneName;
     [SerializeField] GameObject _panel;
 
-    BossHealth _bossHealth;
+    GameObject _player;
+    GameObject _boss;
 
+    BossHealth _bossHealth;
+    PlayerHealth _playerHealth;
 
     void Start()
     {
+        _player = GameObject.FindWithTag("Player");
+        _boss = GameObject.FindWithTag("Boss");
+
         _bossHealth = FindObjectOfType<BossHealth>().GetComponent<BossHealth>();
+        _playerHealth = FindObjectOfType<PlayerHealth>().GetComponent<PlayerHealth>();
     }
 
     
@@ -27,32 +33,34 @@ public class LifeManager : MonoBehaviour
 
     void GameEnd()
     {
+        //Boss‚ÌHP‚ªƒ[ƒ‚É‚È‚Á‚½‚Ìˆ—
         if (_bossHealth._enemyHealth <= 0)
         {
             StartCoroutine(GameClear());
         }
 
         //Player‚ÌHP‚ªƒ[ƒ‚É‚È‚Á‚½Û‚É‚â‚éˆ—
-        //if ()
-        //{
-              //StartCoroutine(GameOver());
-        //}        
+        if (_playerHealth._playerHealth <= 0)
+        {
+            StartCoroutine(GameOver());
+        }
     }
 
 
     IEnumerator GameClear()
     {
+        Destroy(_boss);
+        yield return new WaitForSeconds(5);
         _panel.SetActive(true);
-        yield return new WaitForSeconds(6);
         SceneManager.LoadScene(_resultSceneName);
     }
 
 
     IEnumerator GameOver()
     {
-        _panel.SetActive(false);
-        _countDownText.text = "GameOver";
-        yield return new WaitForSeconds(2);
+        Destroy(_player);
+        yield return new WaitForSeconds(5);
+        _panel.SetActive(true);
         SceneManager.LoadScene(_resultSceneName);
     }
 }

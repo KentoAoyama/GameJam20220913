@@ -18,6 +18,9 @@ public class EnemyBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        Destroy(gameObject);
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "StageLimit")
+        {
+            Destroy(gameObject);
+        }
     }
 }
