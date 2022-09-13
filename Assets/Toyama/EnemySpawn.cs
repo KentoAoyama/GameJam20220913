@@ -8,7 +8,7 @@ public class EnemySpawn : MonoBehaviour
     [SerializeField] GameObject _boss;
     [SerializeField] Transform _spawnPoint = null;
     [SerializeField] float _spawnTime = 2f;
-    [SerializeField] int _enemyCount = 5;
+    [SerializeField] int _enemyCount = 0;
 
     private int _index;
     private bool _flag = false;
@@ -16,8 +16,14 @@ public class EnemySpawn : MonoBehaviour
     private float _enemyTimer = 0f;
     private bool _bossSpawne = false;
 
+
     void Update()
     {
+        if(TimeManager._isGame == true)
+        {
+            _flag = true;
+        }
+
         if (!_flag) return;
 
         if (_bossSpawne)
@@ -36,6 +42,7 @@ public class EnemySpawn : MonoBehaviour
                 _bossSpawne = true;
                 GameObject boss = Instantiate(_boss);
                 boss.transform.position = _spawnPoint.position;
+                _flag = false;
                 return;
             }
 
@@ -54,14 +61,6 @@ public class EnemySpawn : MonoBehaviour
                 _index++;
             }
         }
-    }
-    public void StopGeneration()
-    {
-        _flag = false;
-    }
-    public void StartGeneration()
-    {
-        _flag = true;
     }
 }
 

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class NomalEnemy : MonoBehaviour
 {
     private void OnTriggerEnter2D (Collider2D collision)
     {
-        if(collision.gameObject.tag == "Bullet")
+        if(collision.gameObject.tag == "PlayerBullet")
         {
             Destroy(gameObject);
         }
