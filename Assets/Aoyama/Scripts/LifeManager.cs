@@ -10,7 +10,7 @@ public class LifeManager : MonoBehaviour
     [SerializeField] GameObject _endPanel;
 
     GameObject _player;
-    GameObject _boss;
+    public GameObject _boss;
 
     BossHealth _bossHealth;
     PlayerHealth _playerHealth;
@@ -22,13 +22,20 @@ public class LifeManager : MonoBehaviour
         _player = GameObject.FindWithTag("Player");
         _boss = GameObject.FindWithTag("Boss");
 
-        _bossHealth = FindObjectOfType<BossHealth>().GetComponent<BossHealth>();
-        _playerHealth = FindObjectOfType<PlayerHealth>().GetComponent<PlayerHealth>();
+        _bossHealth = _boss.GetComponent<BossHealth>();
+        _playerHealth = _player.GetComponent<PlayerHealth>();
+
+        _boss.SetActive(false);
     }
 
     
     void FixedUpdate()
     {
+        if (EnemySpawn._isBossActive)
+        {
+            _boss.SetActive(true);
+        }
+
         GameEnd();
     }
 

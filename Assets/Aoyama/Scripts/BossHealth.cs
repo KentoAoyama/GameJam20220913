@@ -33,7 +33,7 @@ public class BossHealth : MonoBehaviour
     }
 
 
-    void OnDisable()
+    void OnDestroy()
     {
         if (_deathPrefab)
         {
