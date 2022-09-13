@@ -854,8 +854,9 @@ MonoBehaviour:
   - {fileID: 1988033144}
   - {fileID: 570290482}
   - {fileID: 651331134}
-  _shootInterval: 0.5
-  _shootInterval2: 1
+  _shootInterval: 0.3
+  _shootInterval2: 2
+  _isLast: 1
 --- !u!114 &9059649240633895826
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -875,9 +876,8 @@ MonoBehaviour:
   - {fileID: 7330790833873738449}
   - {fileID: 7330790833426922341}
   - {fileID: 7330790833355778548}
-  _bossValue: 3
+  _isLastBoss: 0
   _enemyHealth: 5
-  _isGameClear: 0
 --- !u!95 &2044611259
 Animator:
   serializedVersion: 4

@@ -10,7 +10,7 @@ public class BossHealth : MonoBehaviour
     [SerializeField] bool _isLastBoss;
     [Tooltip("ボスが出てきた数")] static int _bossCount;
 
-    public int _enemyHealth = 5;
+    public int _enemyHealth = 10;
     int _destroyNum = 0;
     public static bool _isGameClear;
 
@@ -55,11 +55,11 @@ public class BossHealth : MonoBehaviour
     /// <summary>Enemyの体力に応じた行動をさせる</summary>
     void EnemyMove()
     {
-        if (_enemyHealth >= 4)
+        if (_enemyHealth >= 7)
         {
             _animator.SetFloat("EnemyLevel", 4);
         }
-        else if (_enemyHealth >= 2)
+        else if (_enemyHealth >= 4)
         {
             _animator.SetFloat("EnemyLevel", 2);
         }
@@ -70,8 +70,7 @@ public class BossHealth : MonoBehaviour
         else
         {
             Destroy(gameObject);
-        }
-        
+        }       
     }
 
 
